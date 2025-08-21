@@ -1,0 +1,170 @@
+/* Estilos globais */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	/* Mantém o header e footer em colunas */
+	width: 100vw;
+	height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+	width: 100%;
+	padding: 20px 30px;
+	position: fixed;
+	top: 0;
+	background-color: #fff;
+	box-shadow: 2px 2px 5px #CCC;
+	z-index: 10;
+}
+
+nav .list-links {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	flex-wrap: wrap;
+	/* Permite quebrar linha em telas menores */
+}
+
+
+.list-links li {
+	list-style: none;
+}
+
+.list-links li:hover {
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #CCC;
+	transition: all 0.3s ease-in-out;
+}
+
+li a {
+	text-decoration: none;
+	color: blue;
+}
+
+#mark {
+	padding: 10px;
+	border-radius: 5px;
+	color: #000;
+}
+
+/* Conteúdo principal */
+main {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 80px;
+	/* espaço pro header fixo */
+	padding-bottom: 50px;
+	/* espaço pro footer fixo */
+}
+
+.container {
+	width: 80%;
+	max-width: 850px;
+	min-height: 350px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
+	/* Para quebrar linha no mobile */
+	box-shadow: 5px 5px 20px #CCC;
+	border-radius: 15px;
+	padding: 20px;
+}
+
+.person img {
+	max-width: 250px;
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.clock {
+	text-align: center;
+	margin-right: 15px;
+}
+
+.clocks, .point {
+	font-size: 7rem;
+}
+
+/* Rodapé */
+footer {
+	width: 100%;
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #f1f1f1;
+	text-align: center;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.clocks, .point {
+		font-size: 3rem;
+	}
+
+	nav .list-links {
+		gap: 15px;
+	}
+
+	.person img {
+		max-width: 200px;
+	}
+
+	.person img {
+		max-width: 250px;
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	header {
+		padding: 10px;
+	}
+
+	nav .list-links {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.clocks, .point {
+		font-size: 2.5rem;
+	}
+
+	.person img {
+		max-width: 150px;
+	}
+
+	.container {
+		width: 95%;
+		padding: 15px;
+	}
+
+	.person img {
+		max-width: 250px;
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+	}
+}

@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gabriel Luan">
+    <title>Rotina &#128172</title>
+    <link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+	
+        body {
+            padding-top: 70px;
+            /* Ajuste este valor conforme a altura do seu header */
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        #searchInput {
+            flex-grow: 1;
+	}
+	section{width:100%;}
+	p{text-align:left;}
+
+	#script138 a{  display: inline-block; /* Para tratar o link como um bloco */
+  max-width: 1100px; /* Largura máxima do link */
+  word-wrap: break-word; /* Quebra o link quando necessário */}
+
+	.bold{font-weight:bold;}
+
+
+  strong{
+    font-weight: normal;
+  }
+	</style>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #3730a3 !important;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+    gap: 7px;
+    background-color: white;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 25px !important;
+    color: #3730a3 !important;
+    font-weight: bolder !important;
+}
+
+input {
+    width: 400px !important;
+    height: 50px !important;
+    padding: 0 10px 0 10px !important;
+    border: 1px solid #ccc !important;
+    font-size: 20px !important;
+}
+#msgCopy{
+	min-width:220px;
+	height:50px;
+	background-color:green;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+	right:-25%;
+	color:white;
+	font-size:20px;
+	border-radius:5px;
+	opacity:0;
+	transition:1s all;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px !important;
+    font-weight: bolder !important;
+}
+
+main {
+    width: 99%;
+    height: 100%;
+    margin: auto;
+    margin-top: 25px;
+    background-color: white;
+    padding: 20px;
+    font-weight:none !important;
+}
+
+.container {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h2 {
+    text-align: center;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section>p, h2 {
+    font-size: 25px;
+}
+
+section>span {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    border: 1px solid #198754;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000;
+}
+
+span:hover {
+    background-color: #198754;
+    color: white;
+}
+
+#number {
+    position: relative;
+    background-color: #ccc;
+    border: none;
+    font-weight: bolder;
+}
+
+
+
+</style>
+</head>
+
+<body>
+    <header class="fixed-header">
+        <h1 style="margin-left:15px;">Rotina - Chat</h1>
+        <div class="container">
+            <div class="search-container">
+                <input type="search" class="form-control border border-2 border-primary" id="searchInput"
+                    placeholder="Pesquisar scripts (Ctrl+Q)" accesskey="q">
+                <button class="btn btn-outline-primary" id="searchButton" aria-label="Pesquisar">Pesquisar</button>
+				<div class="msgContainer">
+					<div id="msgCopy">Script Copiado!</div>
+				</div>
+            </div>
+        </div>
+    </header>
+    <main class="rounded">
+        <div class="container" id="scriptsContainer">
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#01 - Senatran/CNH</h2>
+                <p>
+		   O serviço CNH / Senatran <a href="https://portalservicos.senatran.serpro.gov.br">(https://portalservicos.senatran.serpro.gov.br)</a> é de competência do Ministério dos 		   		   Transportes. <br><br>
+    
+		   Obter a Carteira Digital de Trânsito (CDT):<a href="https://www.gov.br/pt-br/servicos/obter-carteira-digital-de-transito"> https://www.gov.br/pt-br/servicos/obter-carteira-		   digital-de-transito</a> <br><br>
+
+	    
+		   Para informações dos canais de atendimento acesse o link: <a href="https://www.gov.br/transportes/pt-br/canais_atendimento">https://www.gov.br/transportes/pt-br/canais_atendimento</a> <br><br>
+	    
+		  Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br. <br><br>
+	      
+		  Ajudo em algo mais?
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#02 - Cidadão não retornou o contato(Inativo)</h2>
+                <p>
+			Como não tivemos uma resposta sua, vamos finalizar este atendimento.<br>
+			Caso ainda esteja com alguma dificuldade, pedimos que inicie uma nova conversa em (gov.br/chat).
+			Tenha um excelente dia! 😉
+                </p>
+            </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#03 - Validar documento Digital(CNH, CIN, RG...)</h2>
+                <p>
+			Entre no link abaixo e valide seu documento de identificação digital no site do validador. <br><br>
+			Segue o link: <a href="https://validar.iti.gov.br/">https://validar.iti.gov.br/</a>
+
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#04 - Solicitar Imagem</h2>
+                <p>
+		     Pode nos dar mais detalhes da sua necessidade?<br><br>
+		     Para poder melhor te auxiliar, pedimos que informe qual serviço está tentando acessar e que nos envie em anexo um print (foto da tela) do erro/ mensagem ao tentar realizar o 		     procedimento. <br><br>
+		     Sem essa informação, não podemos prosseguir com a análise
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#05 - Solicitar Video(APP GOV.BR)</h2>
+                <p>
+                    Para poder melhor te auxiliar, pedimos que nos envie um vídeo com a gravação da tela de todo o
+                    processo desde a abertura do aplicativo gov.br até a apresentação do erro/mensagem comportamento
+                    informado.
+                </p>
+            </section>
+
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#06 - Voa Brasil</h2>
+                <p>
+		    Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. <br>
+		    Solicitamos que entre em contato com o órgão responsável para resolução do problema, que nesse caso trata-se Ministério de Portos e Aeroportos.<br><br>
+
+		    Para cadastro no programa acesse o link abaixo:<a href="https://voabrasil.sistema.gov.br/login">https://voabrasil.sistema.gov.br/login</a><br>
+		    Segue alguns links com maiores informações oficiais:<a href="https://www.gov.br/pt-br/servicos/comprar-passagem-aerea-pelo-programa-voa-brasil">
+			https://www.gov.br/pt-br/servicos/comprar-passagem-aerea-pelo-programa-voa-brasil
+		    </a>
+
+		    <a href="https://www.gov.br/portos-e-aeroportos/pt-br/assuntos/conheca-o-voa-brasil/perguntas-e-respostas/">
+			https://www.gov.br/portos-e-aeroportos/pt-br/assuntos/conheca-o-voa-brasil/perguntas-e-respostas/
+		    </a><br><br>
+
+		    Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br. <br><br>
+
+		    Ajudo em algo mais?
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#07 - Teste de Login (link_teste)</h2>
+                <p>
+		   Pedimos que acesse a página da conta gov.br <a href="https://sso.acesso.gov.br/">(https://sso.acesso.gov.br/)</a> com CPF e senha e nos envie um
+		   print (foto da tela) do resultado. <br><br>		
+		   Caso o login seja realizado com sucesso, a conta gov.br se encontra ativa e funcional.
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#08 - Sistema Integrados</h2>
+                <p>
+					Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov Pedimos que entre em contato com o órgão responsável por este serviço e solicite esclarecimentos. <br><br> 
+					Esclareça suas dúvidas nesta página: <br> <a href="https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-em-outros-sistemas-integrados">https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-em-outros-sistemas-integrados</a>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#09 - Solicitação complementação(Exclusão, bloqueio e desbloqueio)</h2>
+                <p>
+			Para que possamos prosseguir com a sua solicitação, precisamos comprovar a sua identidade por meio de um formulário.<br>
+			<br>Preencha o formulário e após finalizado, me informe o protocolo.<br><br>
+	
+			
+			Link do formulário: <a href="https://atendimento.servicos.gov.br/pt/comprovar-identidade">
+				(https://atendimento.servicos.gov.br/pt/comprovar-identidade)
+			</a>
+	
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#10 - Retirar Colaborador(remover colaboradores da conta)</h2>
+                <p>
+		    Você consegue remover seguindo essa instrução abaixo. <br><br>
+	
+		    Retirar Colaborador do CNPJ:<br> <a href="https://acesso.gov.br/faq/_perguntasdafaq/retirarcolaboradordocnpj.html">
+			https://acesso.gov.br/faq/_perguntasdafaq/retirarcolaboradordocnpj.html
+		   </a>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#11 - Transfere Gov.BR</h2>
+                <p>
+		     O sistema Transferegov.br é de competência da Secretaria de Gestão/Ministério da Gestão e da Inovação em Serviços Públicos. <br>
+		     Para informações dos canais de atendimento acesse o link:<a href="https://www.gov.br/transferegov/pt-br/fale-conosco/canais-atendimento/"><br>
+			https://www.gov.br/transferegov/pt-br/fale-conosco/canais-atendimento/
+		     </a><br><br>
+		     Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br>
+		     Ajudo em algo mais?<br>
+                </p>
+            </section>
+
+
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#12 - Certificado de Antecedentes Criminais</h2>
+                <p>    
+		  O serviço de emissão de Certificado de Antecedentes Criminais é de competência da Polícia Federal. <br><br>
+		  Para mais informações acesse o link: 
+	           <a href="https://www.gov.br/pt-br/servicos/emitir-certidao-de-antecedentes-criminais">https://www.gov.br/pt-br/servicos/emitir-certidao-de-antecedentes-criminais</a><br><br>
+		   Em caso de urgência, buscar o atendimento presencial em na unidade descentralizada da Polícia Federal mais próxima de sua região.<br><br>
+		   Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br><br>
+		   Ajudo em algo mais?
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#13 - Formulário em andamento(form tratado)</h2>
+                <p>
+		   Seu formulário está sendo tratado! Não se preocupe! Em alguns minutos e ainda hoje você receberá uma resposta por e-mail.
+                </p>
+            </section>
+
+
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#14 - Atendimento Presencial(Balcão)</h2>
+                <p>
+		    A plataforma gov.br está com uma iniciativa de atendimento presencial em parceria com algumas unidades 
+		    de atendimento de Estados e Municípios, chamada de Balcão gov.br.<br><br> Nestes locais, o cidadão poderá 
+		    receber ajuda para criar sua conta gov.br, recuperar a sua senha e manter o seu acesso seguro.<br>
+		    Saiba mais em: <a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/atendimento-presencial" target="_blank">gov.br/presencial</a>. <br> Novas unidades serão credenciadas no futuro.
+
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#15 - Atendimento Balcão(mapa)</h2>
+		<img src="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/atendimento-presencial/imagens/copy2_of_BalcoGOV.BR02.png/@@images/df724597-80b6-4da1-b9e3-d767292719e3.png" alt="mapa"/>
+                <p>
+	<a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/atendimento-presencial" target="_blank">gov.br/presencial</a>. 
+
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#16 - Alteração dos Dados(tel,nome, email)</h2>
+		<p>
+		    Os dados possíveis de serem alterados na sua conta gov.br são: E-mail, telefone e foto de perfil. Acesse a página do Gov <a href="https://sso.acesso.gov.br/">
+				https://sso.acesso.gov.br/
+		    </a> e dentro de "Minha área gov.br" selecione a opção "Dados pessoais" e faça a alteração.<br>
+		</p>
+		<img src="https://acesso.gov.br/faq/_images/alteracaodadoscadastraisgovbr_novo.jpg" alt="alterar dados"/>
+
+		<p>
+			Pode alterar o nome, e-mail, telefone e foto. <br><br>
+
+			Para o email e telefone, existe a necessidade de validação para realizar o cadastro. Deverá clicar no botão icone azul com lapis localizado a frente do campo de email ou 				telefone.<br><br>
+		
+			Na alteração, a Conta gov.br solicitará digitação de uma código encaminhado para email ou celular a ser cadastrado. <br>
+		</p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#17 - Arquivo da conversa no chat(solicitar conversa)</h2>
+                <p>
+		   Para solicitar o arquivo com esta conversa, pedimos que registre uma solicitação em <a href="https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br">
+		   (https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br)
+		   <a/>, opção “Minha dificuldade com o 
+			
+		   gov.br não está na lista”. Informe o número do protocolo desta conversa e adicione as imagens abaixo em 
+		   anexo na solicitação para comprovar a sua identidade:
+		   <br><br>
+		   1) Foto nítida de rosto segurando documento oficial com foto ao lado do rosto (foto do documento virada  
+                   para a câmera) e um papel manuscrito (escrito à mão) com a data do dia;<br><br>
+                   2) Uma foto do documento utilizado na foto anterior e que contenha o número do CPF; ou o documento 
+                   da foto anterior e o documento de CPF juntos;
+                </p>
+            </section>
+
+            <section class="scripts">
+                <h2>#18 - Atendimento Telefônico (nao há atendimento telefonico)</h2>
+                <p>
+                    Não há canal para atendimento telefônico sobre assuntos relacionados ao gov.br. Os canais
+                    disponíveis são
+                    este chat, o serviço <a href="https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br">(https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br)</a>                        para registro de dificuldades técnicas e o sistema integrado de Ouvidoria da CGU
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#19 - Titular não passou na comprovação de identidade(Comprovação de fraude)</h2>
+                <p>
+		    A imagem do rosto enviada não possui similaridade suficiente com a biometria do titular do CPF. Desta 
+		    forma, será necessário atualizar sua biometria na base biométrica do órgão. Assim, procure os seguintes 
+		    órgãos, nessa ordem, caso tenha feito o cadastro neles: <br><br>
+
+		    (1) Carteira de Identidade Nacional (CIN): Instituto de identificação onde registrou o documento; <br><br>
+		    (2) Base da ICN (TSE): Tribunal Regional Eleitoral (TRE) de sua região; <br><br>
+		    (3) Carteira Nacional de Habilitação (CNH): Detran de sua região; <br><br>
+
+		    Enquanto não for atualizada a biometria, não será possível continuar o atendimento neste canal. <br>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#20 - Elogios</h2>
+                <p>
+                    Agradecemos pelo seu elogio!
+                    A equipe gov.br está sempre trabalhando para melhorar a experiência do cidadão com os serviços
+                    públicos digitais.
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#21 - Ativar/habilitar verificação em duas etapas</h2>
+                <p>
+		   A Verificação em duas Etapas é um recurso que acrescenta uma camada adicional de segurança para sua conta. Ao ativar o recurso, sempre que você acessar sua Conta gov.br será 		   necessário inserir um código de acesso gerado no seu aplicativo Gov.Br (não se trata de SMS). Assim, mesmo que alguém consiga seu login e senha não poderá acessar sua conta sem o 		   código de acesso. <br><br>
+
+		   Você pode ativar ou desativar a verificação em duas etapas da sua Conta gov.br a qualquer momento.<br><br>
+
+	           Acesse esta página: <a href="https://contas.acesso.gov.br/">https://contas.acesso.gov.br/,</a> digite seu CPF, clique em Avançar, digite sua senha e clique em Entrar.<br><br>
+
+   		   Dentro da Minha área selecione a opção Segurança, clique em Verificação em Duas Etapas, depois em Habilitar verificação em duas etapas.<br><br>
+
+		   Insira o código de acesso enviado para o seu app Gov.Br no seu celular e clique em Habilitar.<br><br>
+
+		   É necessário ter realizado o login no app Gov.Br para que o código da verificação em duas etapas seja gerado no celular (não se trata de SMS).<br><br>
+
+		   Esclareça suas dúvidas nesta página:<br> <a href="https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/ativar-a-verificacao-em-duas-etapas">
+			https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/ativar-a-verificacao-em-duas-etapas
+		   </a>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#22 - Abono Salarial</h2>
+                <p>
+                    Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. <br><br>
+
+		    Para informações dos canais de atendimento acesse o link: <br> <a href="https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento">
+			https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento
+		    </a> <br><br>
+
+		    Nesse link, você abre a solicitação:<br> <a href="https://www.gov.br/pt-br/servicos/receber-o-abono-salarial">https://www.gov.br/pt-br/servicos/receber-o-abono-salarial</a>
+		    <br><br>
+		    Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br. <br><br>
+
+		    Algo mais?
+
+
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#23 - Formulário 2FA Aprovado (2fa concluido)</h2>
+                <p>
+		   Pronto! Seu formulário foi aceito e seu acesso foi liberado. Você pode está acessando sua conta normalmente. <br><br>
+		   Posso auxiliar em algo mais?
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#24 - Formulário Triagem Aprovado (triagem concluido)</h2>
+                <p>
+		   Pronto! Seu formulário foi aceito e seu e-mail foi alterado com sucesso! <br><br>
+		   Posso auxiliar em algo mais?
+                </p>
+            </section>
+
+
+	  <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#25 - Usuario nao consegue inserir a CIN mesmo com a física (CIN)</h2>
+                <p>
+			
+			Após o registro da CIN pelo instituto de identificação, o lote com as informações será enviado para o gov.br. Este prazo de envio depende unicamente do órgão emissor e pode variar de uma unidade da federação para outra. <br><br>
+			Sendo assim, entre em contato com o instituto que você solicitou o documento para maiores informações.
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#26 - SEI/ME</h2>
+                <p>
+		  Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o órgão 	
+		  responsável por este serviço e solicite esclarecimentos.<br><br>
+
+		  Em caso de dúvidas e/ou sugestões sobre o uso do SEI no Ministério da Gestão e Inovação em Serviços Públicos, favor entrar em contato através do e-mail: sei@gestao.gov.br.	
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#127 - Inconsistência no sistema (app gov, gestao)<h2>
+                <p style="text-align:left;">
+			No momento há uma inconsistência no sistema, e devido a isso não está pegando. 
+			<br><br>
+			Então, peço que aguarde e retorne mais tarde, e não se preocupe, o setor técnico já está ciente dessa situação. A solicitação já foi aberta
+                </p>
+            </section>
+
+
+			
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#28 - Criação de conta</h2>
+                <p>
+                    Para criar sua conta gov.br, abra o aplicativo de celular gov.br e clique no botão Entrar com gov.br. Digite seu CPF, clique no botão Continuar. O procedimento também pode ser 	           	    realizado no computador, acessando esta página: <a href="https://contas.acesso.gov.br/">https://contas.acesso.gov.br/</a>
+		    <br><br>
+                    <strong>(1)</strong> Primeiro marque a caixa de seleção Li e estou de acordo com o Termo de Uso e política de Privacidade. Você pode ler o termo clicando em cima dele.<br>
+		    <strong>(2)</strong> Em seguida, marque a caixa de seleção "Não sou um robô". Resolva o Captcha seguindo as orientações que serão apresentadas e clique no botão Continuar.<br>
+		    <strong>(3)</strong> Na tela do Reconhecimento Facial Clique em [Não tenho celular] ou [Criar de Outra forma]<br>
+		    <strong>(4)</strong> Na tela do acesso aos Bancos Credenciados, clique em [Criar de Outra forma]<br>
+		    <strong>(5)</strong> Você poderá criar sua conta respondendo ao questionário com seus dados pessoais armazenados na Receita Federal.<br><br>
+                    Selecione a opção que for melhor para você.<br><br>
+
+		    Mais informações sobre a criação da sua conta gov.br podem ser encontradas nesta página: <a href="http://faq-login-
+		    unico.servicos.gov.br/en/latest/_perguntasdafaq/contaacesso.html">http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/contaacesso.html</a><br>
+					Caso já tenha uma conta gov.br, mas não tenha acesso a sua senha, esclareça suas dúvidas nesta página:<a href=" https://www.gov.br/governodigital/pt-		    br/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-conta-gov.br"> https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-conta-		    		    gov.br</a>						
+                </p>
+            </section>
+			
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#29 - Divergência de Dados(imposto de renda)</h2>
+                <p>
+		  Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o órgão 	
+		  responsável por este serviço e solicite esclarecimentos.<br><br>
+
+		  Os dados possíveis de serem alterados na sua conta gov.br são: E-mail, telefone e foto de perfil.<br>
+		  Demais dados são consultados na base cadastral da Receita Federal Esclareça suas duvidas nessa pagina:<a href=" https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-		          nos-dados-cadastrais/inconsistencia-de-dados-cadastrais-na-receita-federal">
+		  https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-nos-dados-cadastrais/inconsistencia-de-dados-cadastrais-na-receita-federal
+		</a>
+		<br><br>
+       		   Caso queira entrar em contato com a Receita Federal, acesse esse link:
+		   <a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento">
+		   https://www.gov.br/receitafederal/pt-br/canais_atendimento
+		</a>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <h2>#30 - Acesso - Verificação em duas etapas (2FA) - Facematch</h2>
+                <p>
+		  Para este caso, você precisa desabilitar a verificação de duas etapas para poder ter acesso e entrar novamente na sua conta gov.<br><br>
+		  Registre um formulário para desativar a verificação de duas etapas solicitação.
+
+		<br><br>
+		  Seguindo o link, o preenchimento do formulário para Desativação da Verificação em Duas Etapas ou Troca de Email. 
+Prazo máximo é de até 3 (três) dias úteis, porem caso deseje, posso aguardar o preenchimento e agilizar a tratativa.
+
+ <br><br>
+
+	  Link do formulário:
+		  <a href="https://atendimento.servicos.gov.br/pt/desativar-2fa">
+		   https://atendimento.servicos.gov.br/pt/desativar-2fa 
+		  </a>
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#31 -  Acesso - Verificação em duas etapas (2FA) - Facematch(atual)</h2>
+                <p>
+		    
+                    Acesse esse link do formulário para desativar as duas etapas(código): <br><br>
+
+		    Link do formulário:<br> <a href="https://atendimento.servicos.gov.br/pt/desativar-2fa">https://atendimento.servicos.gov.br/pt/desativar-2fa</a>
+		    <br><br>
+		    Precisa de ajuda ou prefere continuar com o formulário por conta própria? 
+		</p>
+            </section>
+
+
+	   <section class="scripts">
+                <h2>#32 -  Anexar documentos na carteira</h2>
+                <p>
+		    Os únicos documentos possíveis para anexar na carteira digital são:<br><br>
+
+		    Carteira de Identidade Nacional (CIN);<br><br>
+
+		    Carteira de Habilitação Técnica (CHT) emitida pela ANAC;<br><br>
+
+		    Certificado de Alistamento Militar (CAM) emitido pelo Exército Brasileiro;<br><br>
+
+		    Carteira de Habilitação - CNH Digital;<br><br>
+
+		    Certificado de Dispensa de Incorporação (CDI);<br><br>
+
+		    Certificado de Reservista (CR) emitido pelo Exército Brasileiro;
+		</p>
+            </section>
+
+	   <section class="scripts">
+                <h2>#33 -  Ouvidoria</h2>
+                <p>
+		     Sistema integrado de Ouvidoria da CGU <a href="https://falabr.cgu.gov.br/">(https://falabr.cgu.gov.br/)</a>.
+		</p>
+            </section>
+
+            <section class="scripts">
+                <h2>#34 - Limpeza no Navegador(cache)</h2>
+                <p>
+
+		    <strong>CELULAR</strong><br>
+		    Para limpar o cache pelo celular, siga as orientações:<br>
+		    Na tela inicial, clique no ícone de três pontos no canto superior direito. Selecione “Histórico” e, em seguida, toque em “Remover dados de navegação”. Escolha “Todo o período” 		    	    como período de exclusão. Marque a opção “Imagens e arquivos armazenados em cache” e, por fim, pressione “Remover dados” para concluir.
+
+		    <br><br>
+
+		    <strong>COMPUTADOR</strong><br>
+                    Pedimos que acesse um navegador de internet diferente, acesse uma aba anônima e limpe os dados
+                    de cache de seu navegador atual e tente novamente. <br><br>
+
+
+		    Para limpar o cache, siga estes passos:<br><br>
+
+		   (1) Clique nos três pontinhos no canto superior direito.<br><br>
+
+		   (2) Acesse Histórico ou Configurações.<br><br>
+
+		   (3) Selecione Limpar dados de navegação ou clique no ícone de lixeira.<br><br>
+
+		   (4) Marque Cache e clique em Limpar dados.
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#35 - Informações - Aumento de niveis da conta</h2>
+                <p>
+			A confiabilidade da sua conta gov.br é dividida em 3 selos: bronze, prata e ouro.<br><br>
+			Para aumentar o nível da sua conta gov.br, abra o aplicativo de celular gov.br e clique no botão “Entrar com gov.br”. 
+			Após entrar na sua conta gov, na tela de inicio do aplicativo, clique na opção "Aumentar nivel", e selecione o nivel que você 				        	desejar. 
+			<br><br>
+
+			Você consegue aumentar o nivel da sua conta gov por meio dessas opções:<br><br>
+
+			Aumento de nivel para Prata:<br>
+			Biometria facial - CNH <br>
+			Bancos(credenciados) <br>
+			Sigepe(para servidor público federal)<br><br>
+
+			Aumento de nivel para Ouro:<br>
+			Biometria facial - justiça eleitoral(TSE)<br>
+			CIN(Carteira de identidade)<br>
+			Certificado digital<br><br><br>
+                
+		
+			Link com informações e vídeos de como aumentar o nivel da conta gov:<br>
+			<a href="https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br">
+			https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br
+			</a>
+			</p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#36 - Aumentar o nível com o banco</h2>
+                <p>
+		    Você pode aumentar o nível da sua conta gov.br através dos bancos credenciados:<br>
+		    Banco do Brasil;<br> Banrisul;<br> Bradesco; Banco de Brasília;<br> Caixa Econômica;<br> Sicoob; Santander;<br> Itaú;<br> Agibank;<br> Sicredi;<br> Mercantil do Brasil;<br> 		    Nubank;<br> BTS Pactual; <br><br>
+
+		    E após clicar no ícone do seu banco para aumentar o nível de sua conta gov.br, todo e qualquer procedimento que for realizado em seguida é de competência da instituição bancária 	            responsável por este ambiente.<br><br>
+	
+		    Esclareça suas dúvidas nesta página: 
+		    <a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br">
+		    (https://www.gov.br/governodigital/pt-br/atendimentogov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br)
+		    </a>			
+                </p>
+            </section>
+
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#37 - Limpeza no App(cache)</h2>
+                <p style="font-weight:none;">    
+		     Peço que realize a limpeza de cache agora no app gov.br e em seguida vai tentar preencher o formulário novamente.<br><br>
+		     Passo a passo:<br> Abra as Configurações > Apps ou Gerenciador de aplicativos > app gov > armazenamento > Limpar cache <br><br>
+
+		     Passo a passo:<br>
+		     (1) Abra as Configurações do seu dispositivo.<br>
+		     (2) Selecione Apps ou Gerenciador de Aplicativos.<br>
+		     (3) Encontre e toque em App Gov.<br>
+		     (4) Toque em Armazenamento.<br>
+		     (5) Selecione a opção Limpar Cache.<br><br>
+
+		     Lembrando que após realizar a limpeza de cache, você deve tentar preencher o formulário novamente.
+                </p>
+            </section>
+
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#38 - Acesso - Nível foi reduzido(reduzir nivel)</h2>
+                <p>    
+		  Existem alguns motivos que podem causar a redução do nível de sua conta gov.br.
+		   <br><br>São eles:<br>
+		   (1) Recuperação de senha por e-mail ou telefone;<br>
+	 	   (2) Recuperação de senha através do formulário de atendimento;
+		   <br><br>
+		   Link do formulário:<br>
+	           <a href="https://atendimento.servicos.gov.br/pt/alterar-email">https://atendimento.servicos.gov.br/pt/alterar-email</a>
+                </p>
+            </section>
+
+
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#39 - Cancelamento de assinatura</h2>
+                <p>    
+		   Você consegue cancelar a sua assinatura entrando em contato com o setor técnico. Irei mandar o link do canal de atendimento. <br><br>
+	
+		
+		   Setor técnico:<br>
+		   <a href="https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br">(https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br)</a>
+
+		   com o assunto [05 - Minha dificuldade com o gov.br não está na lista] e informe na primeira linha da descrição: Esta solicitação é decorrente do canal Assistente Virtual gov.br 		   	   <a href="gov.br/chat">(gov.br/chat)</a>, além de descrever a dificuldade de forma resumida.
+                </p>
+            </section>
+
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#40 - Gravador de tela (gravar video)</h2>
+                <p>    
+		     Você pode usar o gravador de tela do seu aparelho. Se não tiver, pode instalar um aplicativo de gravar a tela ou usar outro dispositivo para gravar o vídeo.
+                </p>
+            </section>
+
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#41 - Limite de e-mail/telefone</h2>
+                <p>    
+		     O limite de contas gov.br com o mesmo número de telefone e endereço de e-mail é 5. Logo, este registro já se encontra cadastrado em 5 outras contas. 
+		     <br><br>
+		     Para registrar um telefone ou e-mail em uma conta gov.br, é enviado um código de confirmação que precisa ser validado pelo próprio titular. Desta forma, esse titular possui 		     total controle sobre o cadastro de seu telefone ou e-mail outras contas gov.br.
+                </p>
+            </section>
+
+	 <section class="scripts">
+                <h2>#42 - Procedimentos de limpeza de cache (navegadores)</h2>
+                <p>    
+		   Safari(IOS - iPhone):<br>
+			Para limpar o histórico e os dados do Safari no iOS, siga a orientação:
+			<br>
+			Vá para Ajustes > Safari, role para baixo, selecione Limpar Histórico e Dados dos Sites e confirme.
+
+			<br><br>
+
+		   	Para limpar o cache no Microsoft Edge:<br>
+			Abra o navegador, vá em Configurações > Privacidade e Segurança > Limpar dados de navegação, selecione Arquivos e imagens em cache e confirme a ação.
+
+			<br><br>
+
+			Para limpar o cache no Google Chrome:<br>
+			Abra o navegador, vá em Configurações > Privacidade e segurança > Limpar dados de navegação, selecione Imagens e arquivos armazenados em cache e finalize tocando em Limpar 				dados.
+
+			<br><br>
+
+			Para limpar o cache no Brave:<br> Abra o navegador, vá em Configurações > Privacidade e segurança > Limpar dados de navegação, selecione Imagens e arquivos armazenados em 				cache e finalize tocando em Limpar dados.
+
+			<br><br>
+
+			Para limpar o cache no Internet Explorer:<br> Abra o navegador, vá em Ferramentas (ou clique no ícone de engrenagem) > Opções da Internet, na aba Geral clique em Excluir... 			na seção Histórico de navegação, selecione Arquivos de Internet temporários e finalize clicando em Excluir.
+
+			<br><br>
+
+			Para limpar o cache no Opera:<br> Abra o navegador, vá em Configurações > Privacidade e segurança > Limpar dados de navegação, selecione Imagens e arquivos armazenados em 			cache e	finalize clicando em Limpar dados.
+			
+			<br><br>
+
+			Para limpar o cache no Firefox:<br> Abra o navegador, vá em Configurações > Privacidade e segurança, na seção Cookies e dados do site clique em Limpar dados..., selecione 				Conteúdo da web em cache e finalize clicando em Limpar.
+                </p>
+            </section>
+
+	 <section class="scripts">
+                <h2>#43 - Fator Acidentário de Prevenção (FAP)</h2>
+                <p>
+			O Fator Acidentário de Prevenção (FAP) é de competência do Ministério do Trabalho e Emprego. 
+        		<p>Entre em contato nos canais de atendimento do Ministério do Trabalho e Emprego, nesta página: <a href="https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento">https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento</a>
+			<p>Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.</p>
+			<p>Ajudo em algo mais?</p>
+                </p>
+            </section>
+
+
+	 <section class="scripts">
+                <h2>#44 - CDAM /PB4</h2>
+                <p>
+			O serviço CDAM / PB4 é de competência do Ministério da Saúde. 
+        		<p>Para obter o certificado acesse o link: <a href="https://www.gov.br/pt-br/servicos/obter-certificado-de-direito-a-assistencia-medica">https://www.gov.br/pt-br/servicos/obter-certificado-de-direito-a-assistencia-medica</a>
+        		<p>Para informações dos canais de atendimento acesse o link: <a href="https://www.gov.br/saude/pt-br/canais-de-atendimento">https://www.gov.br/saude/pt-br/canais-de-atendimento</a>
+			<p>Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.</p>
+			<p>Ajudo em algo mais?</p>
+                </p>
+            </section>
+
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#45 - Preencher o formulario(entre no link...)</h2>
+                <p>    
+		     Entre no link do formulário, preencha, envie e aguarde o prazo para resposta.
+                </p>
+            </section>
+			
+	 <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#46 -  Recuperação de acesso(E-MAIL, SENHA)</h2>
+                <p>    
+		     Para recuperar sua conta Gov.br, acesse <a href="https://contas.acesso.gov.br/">https://contas.acesso.gov.br/</a> ou o aplicativo Gov.br, digite seu CPF e clique em 		     "Continuar". Em seguida, selecione "Esqueci minha senha".<br><br>
+		     Você terá as seguintes opções de recuperação, quando disponíveis:<br><br>
+		     (1) Reconhecimento Facial via aplicativo, se tiver CNH, CIN ou biometria facial cadastrada no TSE;<br><br>
+		     (2) Validação de Dados com bancos credenciados;<br><br>
+		     (3) Código de Acesso por E-mail enviado para o endereço cadastrado;<br><br>
+		     (4) Código de Acesso via SMS enviado para o celular cadastrado;<br><br>
+		     (5) Solicitação de Troca de E-mail para atualizar seus dados e recuperar o acesso.<br><br>
+
+		     
+		     Após você seguir o processo de "esqueci senha", você vai escolher uma dessas opções para recuperar sua senha.
+                </p>
+            </section>
+
+            <section class="scripts">
+                <h2>#47 - Titular Falecido</h2>
+                <p>
+					O gov.br é uma plataforma de identificação e autenticação disponível para acesso pelo titular do CPF 
+					registrado na conta gov.br. Cada órgão responsável pela prestação de serviços públicos digitais pode 
+					decidir realizar a integração destes serviços com o gov.br. Porém, a responsabilidade pela disponibilização 
+					do acesso a este serviço permanece sendo deste órgão. 
+                </p>
+                <p>
+					Caso seja identificado o óbito do portador do CPF na base cadastral da Receita Federal ou da Justiça 
+					Eleitoral, não será possível criar a conta gov.br ou recuperar a senha deste CPF.
+                </p>
+                <p>
+				   Os órgãos responsáveis pela prestação de serviço integrado ao login do gov.br devem fornecer formas 
+				   alternativas de acesso à informação necessária aos procuradores e responsáveis que representem os 
+				   interesses do falecido ou seus familiares. Desta forma, será necessário entrar em contato com este órgão e 
+				   buscar esclarecimentos via canal administrativo ou judicial
+                </p>
+                <p>
+		   Esclareça suas dúvidas nesta página <a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/titular-falecido-na-conta-gov.br">(https://www.gov.br/governodigital/pt-br/atendimentogov.br/duvidas-na-conta-gov.br/titular-falecido-na-conta-gov.br)</a>
+                </p>
+.
+            </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#48 - Solicitando o protocolo do formulário (protocolo form)</h2>
+                <p>
+			Me informe o protocolo do formulário para entrarmos em contato com o setor responsável.
+			<br><br>
+			Lembrando que o protocolo está no seu e-mail.
+                </p> 
+
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#49 - Recuperação de e-mail<h2>
+                <p style="text-align:left;">
+  		   Para alterar seu e-mail, é necessário preencher um formulário. Após a atualização, você poderá solicitar a recuperação de senha através do novo e-mail.<br><br>
+		   Link do formulário: <a href="https://atendimento.servicos.gov.br/pt/alterar-email">https://atendimento.servicos.gov.br/pt/alterar-email</a><br><br>
+                </p>
+            </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#50 - Mensagem de impedimento do formulário</h2>
+                <p>
+		   Se não conseguir preencher o formulário e há aparecer alguma mensagem de impedimento, me informe qual a mensagem apareceu ou mande o print da 		           mensagem, certo?
+                </p> 
+
+            </section>
+
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#51 - Endereço do atendimento gov presencial (Balcao-PE)</h2>
+                <p>
+		   Aqui abaixo estão os endereços de cada local de atendimento presencial do gov no estado de PE:<br><br>
+
+		   Espaço Conecta Compaz Eduardo Campos 📍 Avenida Beberibe, Água Fria, Recife - PE, CEP 52130-000 <br>
+		   Espaço Conecta Compaz Miguel Arraes 📍 Avenida Caxangá, 653, Madalena, Recife - PE, CEP 50720-000 <br>
+		   Espaço Conecta Metrô Estação Recife 📍 Avenida Dantas Barreto, São José, Recife - PE, CEP 50020-000 <br>
+		   Espaço Conecta Compaz Ariano Suassuna 📍 Praça Farias Neves, Cordeiro, Recife - PE, CEP 52171-011 <br>
+	           Espaço Conecta Compaz Lêda Alves 📍 Rua José Rodrigues, S/N, Pina, Recife - PE, CEP 51011-400 <br>
+		   Espaço Conecta Compaz Dom Helder 📍 Rua Lourenço de Sá, 140, Ilha Joana Bezerra, Recife - PE, CEP 50090-540 <br>
+		   Espaço Conecta Compaz Paulo Freire 📍 Rua Tiziu, Cohab, Recife - PE, CEP 51290-583
+		   
+                </p> 
+
+            </section>
+
+
+			
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#54 - Vincular CNPJ nas Empresas no Gov</h2>
+                <p>
+			Para vincular um CNPJ à uma conta gov.br no módulo de empresas 
+			<a href="https://empresas.acesso.gov.br/#!/login">(https://empresas.acesso.gov.br/#!/login)</a>, é necessário possuir uma conta gov.br no CPF desejado e 
+			utilizar um certificado digital de pessoa jurídica (e-CNPJ) registrado neste CPF. <br><br>
+			Apenas são aceitos certificados A1 ou A3, certificados em nuvem não serão identificados. 
+			Não será possível vincular a empresa desejada utilizando um certificado digital de pessoa física. <br><br>
+			Esclareça suas dúvidas nesta página <a href="
+			https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-na-vinculacao-de-cnpj-no-gov.br	
+			">
+			(https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-na-vinculacao-de-cnpj-no-gov.br)
+			</a>.
+                </p> 
+
+            </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#55 - Atendimento(sair do atendimento)</h2>
+                <p>
+			Não se preocupe! Você pode sair da conversa e voltar que não irei encerrar o atendimento.
+                </p> 
+
+            </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#57 - Não atende aos requisitos(nao compativel)</h2>
+                <p>
+		   Foram implementados recursos de segurança na loja de dispositivos da Google Play de tal forma que caso  sejam identificados os seguintes fatores abaixo, a instalação do aplicativo gov.br será bloqueada:<br><br>
+
+ (1) Aplicativo do Google Play desatualizado ou desativado;<br>
+ (2) Aplicativo do Google Play Services desatualizado ou desativado;<br>
+ (3) Arquivo de instalação do aplicativo gov.br não foi obtido na Google Play;<br>
+ (4) Não há uma conta Google vinculada ao dispositivo;<br>
+ (5) O dispositivo possui alguma modificação não oficial (root ou custom rom);<br>
+ (6) O modo desenvolvedor está ativado no dispositivo<br><br>
+
+Além disso, caso a versão do Sistema Operacional do dispositivo não atenda ao requisito mínimo, também 
+não será possível instalar o aplicativo gov.br.
+Ressaltamos a importância de manter um ambiente seguro para utilização do aplicativo gov.br para garantir 
+a segurança do titular e de todos os cidadãos que utilizam a plataforma.<br><br>
+
+Esclareça suas dúvidas em <a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-no-aplicativo-gov.br/duvidas-gerais-no-aplicativo-gov.br">
+(https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-noaplicativo-gov.br/duvidas-gerais-no-aplicativo-gov.br)
+</a>.
+                </p>
+            </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#58 - Modo Desenvolvedor</h2>
+                <p>
+		    Por questões de segurança, não será possível acessar o aplicativo gov.br caso o modo desenvolvedor estiver ativado no dispositivo. <br><br>
+	 	   
+
+		    Passo a passo para desabilitar o modo desenvolvedor:<br><br>	   
+
+		    Android:<br>
+		    Configurações > Sistema > Avançado > Opções do desenvolvedor e desativar essa configuração.<br><br>
+
+		    iPhone iOS:<br>
+		    Abra o Ajustes no seu iPhone. Vá para Privacidade e Segurança > Modo de Desenvolvimento e desativar essa configuração.
+                </p>
+            </section>
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#59  - Simulação de empréstimo na carteira de trabalho</h2>
+                <p>
+		  Você consegue fazer a simulação do empréstimo seguindo esse passo a passo:<br><br>
+
+		  Entrar na carteira de trabalho > Empréstimo > Simulação
+                </p>
+            </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#75 - Conecte SUS/Meu SUS</h2>
+                <p>
+		   O Conecte SUS é a plataforma oficial do Ministério da Saúde. Este sistema pode ser acessado nesta página <a href="https://conectesus-paciente.saude.gov.br/login">
+		   (https://conectesus-paciente.saude.gov.br/login)</a> ou através do aplicativo de celular de mesmo nome, utilizando a sua conta Gov.Br.
+		   <br><br>
+		   Para problemas na apresentação da vacina no certificado de vacinação COVID-19, ou demais problemas envolvendo o funcionamento ou dados cadastrais do 		   sistema, pedimos que entre em contato com o suporte do Ministério da Saúde nesta página <a href="https://webatendimento.saude.gov.br/">(webatendimento.saude.gov.br/faq/conectesus). </a>
+
+<br><br>	
+		    Esclareça suas dúvidas nesta página
+		    <a href="https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-em-outros-sistemas-integrados">
+			(https://www.gov.br/governodigital/pt-br/atendimentogov.br/duvidas-na-conta-gov.br/duvidas-em-outros-sistemas-integrados)
+		    </a>
+                </p>
+            </section>
+
+<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#76 - Programa Desenrola </h2>
+                <p>
+		   O programa Desenrola é de responsabilidade do Ministério da Fazenda, pedimos que procure informações em 
+		   <a href="https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/desenrola-brasil">(https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/desenrola-brasil).
+		   </a><br>
+
+		   Entre em contato nos canais de atendimento do Ministério da Fazenda, nesta página 
+		   <a href="https://www.gov.br/fazenda/pt-br/canais_atendimento/fale-conosco">(https://www.gov.br/fazenda/pt-br/canais_atendimento/fale-conosco)</a>, e exponha sua dificuldade.
+		   <br>
+		   Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.
+		   <br>
+		   Ajudo em algo mais?
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#77 - Scritps para tratar o formulário dos usuarios (tratar formulario)<h2>
+                <p style="text-align:left;">
+		    Irei entrar em contato com o setor responsável para adiantar o processo do seu formulário, certo?
+                </p>
+            </section>
+
+
+	    <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#80 - Carteira digital </h2>
+                <p>
+		   Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o órgão 		           responsável por este serviço e solicite esclarecimentos.<br><br>
+
+		   A Carteira de Trabalho Digital <a href="https://servicos.mte.gov.br/spme-v2/#/carteira-trabalho">( https://servicos.mte.gov.br/spme-v2/#/carteira-trabalho )</a> é um sistema de 		   competência do Ministério do Trabalho e Emprego.<br>
+
+		   Entre em contato nesse link: <a href="https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento">https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento</a>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#83 - Valores a Receber</h2>
+                <p>
+                    Acesse o serviço “Valores a Receber” nesta página
+                    <a
+                        href="https://www.gov.br/pt-br/servicos/consultar-e-solicitar-a-devolucao-de-valores-a-receber">(https://www.gov.br/pt-br/servicos/consultar-esolicitar-a-devolucao-de-valores-a-receber)</a>
+						e siga as orientações
+						presentes nas etapas do serviço; 
+						O passo a passo completo se encontra na página do <strong>Banco Central</strong>. <br>
+                    <br>
+						Em caso de dúvidas sobre o serviço, entre em contato pelos canais do Banco Central: <a
+							href="https://www.bcb.gov.br/acessoinformacao/faleconosco">(https://www.bcb.gov.br/acessoinformacao/faleconosco)</a>.
+                    <br><br>
+						Esclareça suas dúvidas nesta página: <br>	
+                    <a
+                        href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-em-outros-sistemas-integrados">(https://www.gov.br/governodigital/pt-br/atendimentogov.br/duvidas-na-conta-gov.br/duvidas-em-outros-sistemas-integrados)</a>. <br><br>
+
+		Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br><br>
+
+		Ajudo em algo mais?
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#94 - Registrato (bacen)</h2>
+                <p>
+                     Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o 		     órgão responsável por este serviço e solicite esclarecimentos. <br><br>
+
+		     Entre em contato pelos canais do Banco Central para você obter mais informações sobre essa situação. <br><br>
+
+		     Acesse esse link: <a href="https://www.bcb.gov.br/acessoinformacao/faleconosco">(https://www.bcb.gov.br/acessoinformacao/faleconosco)</a>.
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#95 - Prouni</h2>
+                <p>
+                    O PROUNI é de competência do Ministério da Educação <a href="https://www.gov.br/mec/pt-br">(https://www.gov.br/mec/pt-br)</a>. <br>
+
+		    Para informações dos canais de atendimento acesse o link: <a href="https://acessounico.mec.gov.br/prouni">https://acessounico.mec.gov.br/prouni</a>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#96 - Script de Encerramento</h2>
+                <p>
+					Agradeço seu contato! Agora, peço que você avalie nosso atendimento respondendo à pesquisa que receberá.
+					A avaliação varia de 0 a 10, sendo 10 a maior nota. Se precisar de mais ajuda, estamos à sua disposição.
+					Até a próxima!😉
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#97 - COMPRAS(licitações, etc..)</h2>
+                <p>
+                    Peço que você entre em contato com o setor do Compras. Entrando em contato com Compras, você poderá solicitar mais informações sobre essa situação.
+		    <br><br>
+		    Acesse os canais de atendimento do Compras:<br>
+		    <a href="https://www.gov.br/compras/pt-br/canais_atendimento/central-de-atendimento">https://www.gov.br/compras/pt-br/canais_atendimento/central-de-atendimento</a>
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#98 - Enviar para o Facematch(ERRO NA BIOMETRIA FACIAL)</h2>
+                <p>
+                    Como o erro apresentado é na validação facial ao tentar preencher o formulário, só um momento, por
+                    favor. Irei transferir seu atendimento ao setor responsável.
+                </p>
+            </section>
+
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#99 - Reconhecimento Facial - Atualizar os dados no TRE/TSE</h2>
+                <p>
+				   Referente a biometria facial,
+				   você tem que comparecer ao TRE/Justiça eleitoral mais próxima da sua casa, para cadastrar/atualizar a sua biometria facial.<br><br>
+				   A sua biometria facial está desatualizada no sistema.<br>
+				   O gov.br puxa os dados da base do TRE/justiça eleitoral, assim só vai conseguir acesso ao app gov.br e aumentar para nível ouro após 				   seguir os procedimentos já informados.<br><br>
+				   Enquanto não resolve no TRE/Justiça eleitoral, pode acessar a sua conta gov.br pelo computador, com CPF e senha.
+                </p>
+            </section>
+
+            <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#100 - Recuperação de conta de usuários do Rio Grande do Sul</h2>
+                <p>
+
+		  Confirmar CPF, data de nascimento e nome completo.
+		  <br>
+
+		  ETAPA 1
+		  <br>
+
+			Por gentileza me confirme se a sua demanda é sobre o auxílio reconstrução, se a resposta for sim, iremos excluir a sua conta para que possa criar uma nova, deseja isso?
+  		  <br>
+		  
+		  ETAPA 2
+		  <br>
+
+			  A sua conta foi excluída conforme sua solicitação.  <br>
+		
+				  Orientamos que crie uma nova pelo computador.  <br>
+
+			  Para criar sua conta gov.br, siga os seguintes passos:   <br>
+
+
+
+			  1) Acesse esta página (acesso.gov.br) digite seu CPF e clique em Continuar;  <br>
+
+			  2) Marque a caixa de seleção do Termo de Uso e Política de Privacidade, assim como a caixa de seleção do Captcha;  <br>
+
+			  3) Siga os passos apresentados na tela para realizar a criação usando o Reconhecimento Facial do aplicativo de celular Gov.Br;  <br>
+
+			  4) Caso não tenha sucesso, selecione a opção Não tenho celular e escolha um dos Bancos Credenciados para criar sua conta usando o ambiente seguro deste banco;  <br>
+
+			  5) Caso não tenha sucesso, selecione a opção Tente outra forma e responda ao questionário corretamente com seus dados pessoais;  <br>
+
+			  6) Confirme seus dados e clique em Continuar;
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#101 - Carteira de Pescador</h2>
+                <p>
+					Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à 					Conta Gov.Br. Pedimos que entre em contato com o órgão responsável por este serviço e solicite esclarecimentos.<br><br>
+					Para solicitar carteira de Pescador, acesse esse link: <br><a href="https://www.gov.br/pt-br/servicos/solicitar-licenca-de-						pescador-amador">https://www.gov.br/pt-br/servicos/solicitar-licenca-de-pescador-amador</a><br>
+					Para mais informações ou dúvidas sobre este serviço, entre em contato com os seguintes canais:<br>
+					Telefone: +55 (61) 3276-4438 <br>
+					E-mail: pescadoramador.sap@agro.gov.br
+
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#102 - MEI</h2>
+                <p>
+					Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o órgão responsável por este serviço e solicite esclarecimentos..
+
+					Os serviços de MEI são prestados pela Receita Federal.<br><br>
+					Esclareça suas dúvidas nesta página:<br>
+					<a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento">https://www.gov.br/receitafederal/pt-br/canais_atendimento</a>
+                </p>
+            </section>
+
+	<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#103 - Bolsa Familia/Auxilio Brasil</h2>
+                <p>
+		    O serviço Bolsa família/Auxilio Brasil é de competência do Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome. <br><br>
+		    Para informações dos canais de atendimento acesse o link: <br> <a href=" https://www.gov.br/mds/pt-br/acesso-a-informacao/participacao-social/fale-conosco">
+			 https://www.gov.br/mds/pt-br/acesso-a-informacao/participacao-social/fale-conosco
+		   </a>
+
+		</p>
+        </section>
+			
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#104 - Acesso ao gov bloqueado(desbloquear)</h2>
+                <p>
+		   Consta que sua conta gov está com um bloqueio temporário por tentativas de login, caso desejar você pode está liberando por esse atendimento mesmo. 
+                </p>
+            </section>
+
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#105 - E-cac(ecac)</h2>
+                <p>
+			Referente ao e-CAC, infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br.<br><br>
+			No entanto, para que você consiga resolver seu problema, deverá acessar o link que vou te enviar, pois o sistema e-CAC é de competência da Receita Federal e não do Gov.
+			<br><br>
+			Link:<br>
+			<a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento">https://www.gov.br/receitafederal/pt-br/canais_atendimento</a>
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#106 - Lecom(Setor técnico)</h2>
+                <p>
+			Registre uma solicitação à equipe técnica com o assunto [05 - Minha dificuldade com o gov.br não está na lista], mencionando que é decorrente do canal Assistente Virtual 			gov.br (gov.br/chat) e descreva a dificuldade de forma resumida.<br><br>
+
+			Acesse o link e registre a solicitação: <br> <a href="https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br">
+			   https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br
+			</a> <br><br>
+			
+			Após o envio, a equipe técnica do gov.br poderá analisar a sua dificuldade de forma a realizar os ajustes necessários.
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#107 - INSS(beneficio...)</h2>
+                <p>
+					Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br.
+					Pedimos que entre em contato com o órgão responsável por este serviço e solicite esclarecimentos.<br><br>
+					Os serviços do Meu INSS <a href="https://meu.inss.gov.br/">(https://meu.inss.gov.br/)</a> são de competência do INSS.<br><br>
+	Entre em contato acessando esse link:<br> <a href="https://www.gov.br/inss/pt-br/canais_atendimento">https://www.gov.br/inss/pt-br/canais_atendimento</a>
+
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#108 - Siasg/Siag/Siaf - Compras</h2>
+                <p>
+					Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br.
+					Solicitamos que entre em contato com o órgão responsável para resolução do problema.
+					Segue o link:
+				    <a href="https://www.gov.br/gestao/pt-br/assuntos/central-de-atendimento">
+						https://www.gov.br/gestao/pt-br/assuntos/central-de-atendimento
+					</a>
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#109 - Cliente nao reconhece e-mail/telefone(BOLETIM)</h2>
+                <p>
+					Caso suspeite que sua conta tenha sido acessada ou alterada indevidamente, sugerimos que:
+					
+					Registre um boletim de ocorrência.
+					<br>
+					Recuperar o acesso a sua conta gov.br;
+					Vai ler atentamente as orientações abaixo e preencher o formulário.
+					Ao preencher o formulário, vai está solicitando ao gov.br que altere seu email e depois você vai poder criar a sua senha.
+					<br>
+					Segue o link para clicar e seguir o passo a passo para preencher o formulário:
+					<a href="https://acesso.gov.br/faq/\_perguntasdafaq/formarrecuperarconta.html">
+						https://acesso.gov.br/faq/\_perguntasdafaq/formarrecuperarconta.html
+					</a>
+					<br>
+					Para recuperar  o acesso a sua conta gov.br, clicar no link acima.
+                </p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#111 - ENEM</h2>
+                <p>
+					O sistema do ENEM: <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem">https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem</a> é de competência do Ministério da Educação (https://www.gov.br/mec/pt-br).<br>
+
+					Acesse a página do Participante:
+					<a href="https://enem.inep.gov.br/participante/#!/">https://enem.inep.gov.br/participante/#!/</a>
+					<br><br>
+					Para informações dos canais de atendimento acesse o link: <a href="https://www.gov.br/inep/pt-br/canais-de-atendimento/fale-conosco">https://www.gov.br/inep/pt-br/canais-de-atendimento/fale-conosco</a><br><br>
+
+					Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.
+				</p>
+            </section>
+			
+			<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#112 - SUS</h2>
+                <p>
+					Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o órgão responsável por este serviço e solicite esclarecimentos. <br><br>
+					Entre em contato com Ministério da Saúde através desse canal de atendimento:<br> <a href="https://www.gov.br/saude/pt-br/canais-de-atendimento">https://www.gov.br/saude/pt-br/canais-de-atendimento</a>
+				</p>
+            </section>
+			
+	<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#113 - AUMENTO DE NIVEL DE CONTA PARA PRATA(MENOR DE IDADE)</h2>
+                <p>
+		    Você deve comparecer à agência do seu banco e colocar o seu filho(a) como dependente da sua conta bancária, feito isso, você poderá está aumentando o nivel 					    da conta do seu filho(a) entrando através do seu Banco. 
+		</p>
+        </section>
+
+	<section class="scripts">
+                <h2>#113.2 - AUMENTO DE NIVEL DE CONTA PARA OURO(MENOR DE IDADE)</h2>
+                <p>
+		    Para aumentar o nivel da conta do menor de idade para Ouro, é necessário ler o Qrcode do CIN.<br><br>
+
+		    Para aumentar o nível de sua conta gov.br com a Carteira de Identidade Nacional (CIN), é necessário seguir os seguintes passos:<br><br>
+
+		    (1) Solicitar a emissão da CIN em um dos institutos de identificação dos estados brasileiros, seguindo as especificações do Decreto nº 10.977, de 23 de fevereiro de 2022;<br>
+	            (2) Receber em mãos o documento físico;<br>
+	            (3) Acessar o aplicativo gov.br em seu dispositivo móvel e clicar em Aumentar nível;<br>
+		    (4) Ler o QR code impresso na CIN usando o aplicativo gov.br;<br>
+	            (5) Realizar o reconhecimento facial seguindo as dicas apresentadas;<br><br>
+
+		    Após o registro da CIN pelo instituto de identificação, o lote com as informações será enviado para o gov.br. Este prazo de envio depende unicamente do órgão emissor e pode 		    variar de uma unidade da federação para outra.
+		</p>
+        </section>
+
+
+	<section class="scripts">
+                <h2>#114 - CLIENTE NÃO RECEBEU O CODIGO PARA ASSINAR(ASSINATURA)</h2>
+                <p>
+		   O número cadastrado em sua conta gov.br é o mesmo que você tem em mãos? <br><br>
+
+		   Vou te enviar o link para que tente assinar através desse link, e me informe se o código chegou no app gov.br.<br>
+
+		   Segue o link:<a href="https://assinador.iti.br">https://assinador.iti.br<a/><br><br>
+
+		   Desinstale o seu app gov.br.<br>
+
+		   Após está desinstalado, através desse link que te enviei acima, vai tentar assinar através do computador novamente o documento.<br>
+		   Após pedir o código, vai verificar se o código chegou em seu aparelho celular através de sms.<br>
+
+		</p>
+        </section>
+
+	<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#115 - Dignidade menstrual(absorvente)</h2>
+                <p>
+		   infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o órgão 		           responsável por este serviço e solicite esclarecimentos.<br>
+
+		   Você teria que entrar em contato com o Ministério da Saúde<br>
+
+  		   Para mais informações acesse esse link: <a href="https://www.gov.br/saude/pt-br/campanhas-da-saude/2024/dignidade-menstrual">
+			https://www.gov.br/saude/pt-br/campanhas-da-saude/2024/dignidade-menstrual
+		   </a><br>
+  
+ 		   Você consegue entrar em contato por esse link: <a href="https://www.gov.br/saude/pt-br/canais-de-atendimento.">
+			https://www.gov.br/saude/pt-br/canais-de-atendimento.
+		   </a>
+		</p>
+        </section>
+
+	<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#116 - Nota Fiscal(NF)</h2>
+                <p>
+		   O sistema de Nota Fiscal de Serviço Eletrônica <a href="https://www.gov.br/nfse/pt-br">(https://www.gov.br/nfse/pt-br)</a> é de competência da Receita Federal.<br>
+		   Entre em contato nos canais de atendimento da Receita Federal, nesta página:
+		   <a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento">https://www.gov.br/receitafederal/pt-br/canais_atendimento</a>
+		   , e exponha sua dificuldade.<br>
+
+		   Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.
+		</p>
+        </section>
+
+	<section class="scripts">
+                <h2>#117 - Formulário negado(reenviar o form)</h2>
+                <p>
+		   <strong>FORM 2FA</strong><br>
+		   Nesse caso, você deve refazer um novo formulário seguindo as orientações que foi informado por este atendimento.<br><br> 
+		   Link do formulário:<a href="https://atendimento.servicos.gov.br/pt/desativar-2fa">https://atendimento.servicos.gov.br/pt/desativar-2fa</a><br>
+		   Lembrando que o prazo de solução do formulário é de algumas horas até 3 dias úteis.<br><br>
+
+		   <strong>FORM E-MAIL</strong><br>
+		   Nesse caso, você deve refazer um novo formulário seguindo as orientações que foi informado por este atendimento.<br><br> 
+		   Link do formulário:<a href="https://atendimento.servicos.gov.br/pt/alterar-email">https://atendimento.servicos.gov.br/pt/alterar-email</a><br>
+		   Lembrando que o prazo de solução do formulário é de algumas horas até 3 dias úteis.
+		</p>
+        </section>
+
+	<section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#118 - Error 403 Forbbiden(android/ios)</h2>
+	  <p>
+		Qual é o sistema operacional do seu dispositivo? Android ou IOS?<br><br>
+
+		Resposta (iOS – Pessoa Física):<br>
+
+		Pedimos que realize uma configuração no Safari (navegador de internet de seu dispositivo):<br>
+	
+		(1) Acesse Ajustes > Safari > Privacidade e Segurança;<br>
+
+		(2) Desmarcar a opção Impedir rastreamento e em Ocultar endereço IP marcar a opção de rastreadores;<br>
+
+		(3) Se a opção de ocultar endereço IP aparecer como Apenas rastreadores, marcar esta opção;<br>
+
+		(4) Em seguida, pedimos que tente acessar através de 4G e Wi-Fi novamente.<br>
+
+		Caso a dificuldade permaneça, acesse Ajustes > [seu nome] > iCloud.<br>
+
+		Toque em Retransmissão Privada e, em seguida, desmarque a Retransmissão Privada caso esteja habilitada<br><br>
+
+		Resposta (Android/Windows - Pessoa Física):<br>
+		
+		O endereço IP do seu provedor de internet se encontra bloqueado na plataforma gov.br <a 		href="https://servicos.acesso.gov.br/">https://servicos.acesso.gov.br/</a> por ter sido 			identificado acesso automatizado caracterizado 		por hosting (criação de contas ou acesso em massa de forma automatizada). No momento, não será possível acessar a plataforma gov.br 		        através 		do IP deste provedor de internet até que o mesmo justifique o caso junto ao gov.br para avaliação de desbloqueio. O provedor poderá registrar uma solicitação 		em
+		<a href="https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br">https://www.gov.br/pt-br/servicos/solicitar-atendimento-conta-gov.br</a> , opção 		"06 - Minha dificuldade com o gov.br não está na lista". Caso tenha dúvidas, pedimos que solicite esclarecimentos à empresa que 		presta o 		serviço de provedor de internet para o seu dispositivo.
+
+		Enquanto isso, sugerimos que realize o acesso ao gov.br utilizando uma rede diferente, como uma rede 3G, 4G ou outra rede Wi-Fi, por exemplo.
+	   </p>
+	
+        </section>
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#119 - Receita Federal(Dados)</h2>
+                <p>
+		  Consulte na base cadastral da Receita Federal. Esclareça suas duvidas nessa pagina:<a href=" https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-nos-dados-		                  cadastrais/inconsistencia-de-dados-cadastrais-na-receita-federal">
+		  https://www.gov.br/governodigital/pt-br/atendimento-gov.br/duvidas-nos-dados-cadastrais/inconsistencia-de-dados-cadastrais-na-receita-federal
+		</a>
+		<br>
+       		   Caso queira entrar em contato com a Receita Federal, acesse esse link:
+		   <a href="https://www.gov.br/receitafederal/pt-br/canais_atendimento">
+		   https://www.gov.br/receitafederal/pt-br/canais_atendimento
+		</a>
+
+		   <strong><br><br>Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br></strong>
+                </p>
+            </section>
+
+	  <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#120 - ANAC (anac)</h2>
+                <p>
+			Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br.
+			Pedimos que entre em contato com o órgão responsável por este serviço e solicite esclarecimentos.<br><br>
+
+			Entre em contato com os canais de atendimento do ANAC:<br>
+			<a href="https://www.gov.br/anac/pt-br/canais_atendimento/fale-com-a-anac">https://www.gov.br/anac/pt-br/canais_atendimento/fale-com-a-anac</a>
+                </p>
+            </section>
+
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#121 - SouGov(Atendimento Geral)</h2>
+                <p>
+		   O SouGov.br faz parte de um amplo trabalho de transformação digital, para gerar uma maior e melhor conectividade entre os servidores ativos, 	           aposentados e pensionistas e a gestão de pessoas da Administração Pública Federal (APF).<br>
+
+                   O acesso ao sistema deve ser realizado nesta página (https://sougov.sigepe.gov.br/sougov/) usando sua conta gov.br ou através do aplicativo de 		   celular de mesmo nome.<br>
+
+		   Para informações de como acessar o SIGEP e ver Contracheque acesse o link: 
+	   	   <a href="https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/servidor-pensionista-acesso-sigepe-e-aplicativos/acesso-ao-sigepe-sigac">
+			https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/servidor-pensionista-acesso-sigepe-e-aplicativos/acesso-ao-sigepe-sigac
+		   </a><br>
+
+		   Assuntos relacionados ao funcionamento do Sou Gov.Br e suas funções internas devem ser direcionados ao canal disponível nesta página 		   (https://www.gov.br/servidor/pt-br/canais_atendimento/central-sipec).<br>
+
+		   Esclareça suas dúvidas nesta página <a href="https://www.gov.br/servidor/pt-br/canais_atendimento/central-sipec">
+			(https://www.gov.br/servidor/pt-br/canais_atendimento/central-sipec).
+   		   </a><br>
+
+	       	   Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br>
+
+		   Ajudo em algo mais?<br>
+                </p>
+            </section>
+
+
+	   <section class="scripts">
+                <span class="copy">Copiar</span>
+                <h2>#122 - SouGov(Atendimento São Paulo(SP))</h2>
+                <p>
+		    O Sou Gov é uma plataforma com serviços de gestão de pessoas exclusivos para servidores públicos federais ativos, aposentados, pensionistas e anistiados políticos do poder 		    Executivo Federal.<br><br>
+
+		    O serviço SOU.SP.GOV.BR <a href="https://sou.sp.gov.br/sou.sp">(https://sou.sp.gov.br/sou.sp)</a> tem a finalidade de permitir o acesso às informações cadastrais e financeiras 		    dos servidores ativos, aposentados e pensionistas do Estado de São Paulo e acessam a folha SEFAZ.<br><br>
+
+		    Entre em contato na Central de Atendimento nesta página: <a href="https://sou.sp.gov.br/sou.sp/canais de comunicação/fale conosco">
+			https://sou.sp.gov.br/sou.sp/canais de comunicação/fale conosco
+		    </a><br><br>
+
+		    Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br>
+
+		    Ajudo em algo mais?
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#123 - Printar a tela com dispositivos(smartphones, computers)</h2>
+                <p>
+		    <strong>Celular(Android)</strong>
+		    <br>
+		    Para tirar um print no celular, pressione e segure ao mesmo tempo o botão de ligar/desligar e o botão de diminuir volume. A imagem será salva na galeria.
+		    <br><br>
+		    <strong>Computador(Windows)</strong>
+		    <br>
+		    Após tirar o print com Windows + PrtScn, você pode acessar rapidamente a pasta onde a imagem está salva. Basta abrir o Explorador de Arquivos e seguir este caminho:
+		    <br><br>
+		    Explorador de Arquivos > Imagens > Capturas de Tela
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#124 - Confirmação(e-mail, telefone, nome completo) - Descontinuado</h2>
+                <p>
+		   Para isso, precisamos do envio dos seguintes arquivos:<br>
+		   ► Foto nítida de rosto segurando documento oficial com foto ao lado do rosto (foto do documento virada para a câmera) e um papel manuscrito (escrito à mão) com a data do dia;<br>
+		   ► Uma foto do verso do documento utilizado na foto anterior e que contenha o número do CPF; ou o verso do documento da foto anterior e o documento de CPF juntos;<br>
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#125 - Script de Manutenção</h2>
+                <p>
+		    Lamentamos o transtorno. O sistema em questão se encontra atualmente em manutenção e a equipe técnica já está trabalhando para retornar o funcionamento normal o mais rápido 		    	    possível. Pedimos que tente novamente após algumas horas. Agradecemos a compreensão.
+                </p>
+            </section>
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#126 - Pé de meia</h2>
+                <p>
+		    O Programa Pé-De-Meia é de competência do Ministério da Educação.<br>
+  
+		    Para mais informações acesse o link: <a href="https://www.gov.br/mec/pt-br/pe-de-meia/pe-de-meia/#">https://www.gov.br/mec/pt-br/pe-de-meia/pe-de-meia/#</a><br>
+
+		    Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br><br>
+
+		    Ajudo em algo mais?
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#127 - Seguro desemprego</h2>
+                <p>
+		    O seguro desemprego é um sistema de competência do Ministério do Trabalho e Emprego.
+
+		    Entre em contato nesse link: <a href="https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento">https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento<a/>
+		    <br><br>
+		    Neste canal, apenas podemos ajudar em assuntos sobre o acesso da sua conta Gov.br.
+                </p>
+            </section>
+
+
+	   <section class="scripts"style="width:100%;">
+                <h2>#128 - Links(2fa, email)<h2>
+                <p style="text-align:left;">
+  		   Link do formulário para desativar a verificação de duas etapas:<br>
+		   <a href="https://atendimento.servicos.gov.br/pt/desativar-2fa">https://atendimento.servicos.gov.br/pt/desativar-2fa</a><br>
+		   O prazo de solução é de algumas horas até 3 dias úteis.<br><br>
+
+		   Link do formulário para alterar o e-mail cadastrado:<br>
+		   <a href="https://atendimento.servicos.gov.br/pt/alterar-email">https://atendimento.servicos.gov.br/pt/alterar-email</a><br>
+		   O prazo de solução é de algumas horas até 3 dias úteis.<br><br>
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#129 - Cadastrar um novo e-mail<h2>
+                <p style="text-align:left;">
+  		   Se ao abrir a sua conta gov e aparecer uma mensagem que diz que você não possui e-mail, cadastre um novo e-mail e siga as orientações abaixo:<br><br>
+			
+		   Cadastre um novo ou o mesmo e-mail que você tinha na conta, preencha um formulário e envie. Lembrando que após o envio do formulário, há um 			           prazo de aguardo a resposta que chegará ao e-mail. O prazo para resposta é no máximo 3 dias úteis, mas pode ser respondido antes. <br><br>
+
+
+		   Acesse o formulário, clicando nesse link abaixo:<br> <a href="https://atendimento.servicos.gov.br/pt/alterar-email">https://atendimento.servicos.gov.br/pt/alterar-email</a><br><br>
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#130 - Agendar ou fazer RG, identidade,cpf...<h2>
+                <p style="text-align:left;">
+		   Você deve comparecer no órgãos: poupa tempo ou no expresso cidadão de acordo que é chamado na sua cidade para realizar este procedimento, pois por este atendimento
+		   só tratamos assuntos relacionados ao acesso a conta gov.br.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#131 - Documentos para receber junta a militar(certidao de reservista militar,..) <h2>
+                <p style="text-align:left;">
+		     Você deve procurar uma junta militar para mais informações sobre este caso, pois por este atendimento
+		     só tratamos assuntos relacionados ao acesso a conta gov.br.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#132 - Auxilio reconstrução Desativado<h2>
+                <p style="text-align:left;">
+		     O auxilio reconstrução foi desativado, sendo assim, para mais informações desse caso você deve entrar em contato diretamente com a prefeitura da sua cidade, pois esse serviço 		     não é mais vinculado com o gov.br
+                </p>
+            </section>
+
+	   <section class="scripts">
+                <h2>#133 - Instruções ao acesso da aba anônima(aba anonima)<h2>
+                <p style="text-align:left;">
+		   <strong>Desktop(computador/notebook)</strong><br>
+		   Para acessar a aba anônima pelo navegador, pressionar as seguintes teclas: Ctrl + Shift + N 
+		   <br><br>
+		   <strong>Smartphones(celulares)</strong><br>
+		   Para abrir uma aba anônima no seu celular, basta abrir o navegador e clicar no ícone de três pontos no canto superior direito da tela. Em seguida, selecione a opção “Nova aba 		           anônima” e pronto.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#134 - Horário de atendimento(hora do chat)<h2>
+                <p style="text-align:left;">
+		   O atendimento pelo chat está disponível de segunda a sexta-feira, das 8h às 18h.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#135 - Documentação incompleta - 2fa (menor de idade)<h2>
+                <p style="text-align:left;">
+		   Seu formulário foi rejeitado, pois como você é menor de idade, é necessário mandar algumas documentações específicas.
+		   <br><br>
+		   Para você mandar o seu formulário com toda documentação solicitada, é necessário você entrar nesse link abaixo e seguir todas as orientações:
+		   <a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-conta-gov.br/titular-da-conta-e-crianca-ou-adolescente">https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-conta-gov.br/titular-da-conta-e-crianca-ou-adolescente </a><br><br>
+
+		   Sendo assim, irei te mandar o formulário novamente para você refazer com a documentação solicitada:<br>
+		   <a href="https://atendimento.servicos.gov.br/pt/desativar-2fa">https://atendimento.servicos.gov.br/pt/desativar-2fa</a>	   
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#136 - Documentação incompleta - triagem (menor de idade)<h2>
+                <p style="text-align:left;">
+		   Seu formulário foi rejeitado, pois como você é menor de idade, é necessário mandar algumas documentações específicas.
+		   <br><br>
+		   Para você mandar o seu formulário com toda documentação solicitada, é necessário você entrar nesse link abaixo e seguir todas as orientações:
+		   <a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-conta-gov.br/titular-da-conta-e-crianca-ou-adolescente">https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/recuperar-conta-gov.br/titular-da-conta-e-crianca-ou-adolescente </a><br><br>
+
+		   Sendo assim, irei te mandar o formulário novamente para você refazer com a documentação solicitada:<br>
+		   <a href="https://atendimento.servicos.gov.br/pt/alterar-email">https://atendimento.servicos.gov.br/pt/alterar-email</a>	   
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#137 - Escanear a CIN pelo Qrcode para aumento de conta<h2>
+                <p style="text-align:left;">
+		   Maiores orientações de como escanear com a CIN:
+		   <a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin">https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/atendimento-gov.br/duvidas-na-conta-gov.br/duvidas-para-aumentar-o-nivel-da-conta-gov.br/duvidas-para-aumentar-o-nivel-com-a-cin</a> 
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#138 - Emissão de CPF(emitir CPF)<h2>
+                <p style="text-align:left;" id="script138">
+		    Os serviços de Emissão do CPF são prestados pela Receita Federal.<br><br>
+		    Para ter o acesso ao CPF em PDF, acesse o link:<br> <a 		    		href="https://servicos.receita.fazenda.gov.br/Servicos/CPF/ImpressaoComprovante/ConsultaImpressao.asp">
+		    https://servicos.receita.fazenda.gov.br/Servicos/CPF/ImpressaoComprovante/ConsultaImpressao.asp
+		    </a><br><br>
+		    Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br. <br><br>
+		    Algo mais?
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#139 - Adicionar a CIN digital no app<h2>
+                <p style="text-align:left;">
+		   Acesse ao link que te levará a um vídeo orientando como proceder para adicionar a CIN no app do GOV.<br><br>
+		   Segue o link do video:<br>
+		   <a href="https://youtu.be/BeWNk2T6Kcg">https://youtu.be/BeWNk2T6Kcg</a> 
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#140 - E-social<h2>
+                <p style="text-align:left;">
+		   Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. 			           Pedimos que entre em contato com o órgão responsável por este serviço e solicite esclarecimentos... <br><br>
+		   O sistema e-Social <a href="https://login.esocial.gov.br/login.aspx">https://login.esocial.gov.br/login.aspx</a> é de competência do Ministério do 		   Trabalho e Emprego.<br><br>
+
+		  Entre em contato nos canais de atendimento nesta página:<br> <a href="https://www.gov.br/esocial/pt-br/canais_atendimento">https://www.gov.br/esocial/pt-br/canais_atendimento</a> e exponha sua dificuldade.
+		
+		   
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#141 - Como obter um certificado digital<h2>
+                <p style="text-align:left;">
+		   O certificado digital é um serviço que disponibiliza documento eletrônico como uma identidade eletrônica por conter, digitalmente, os dados da 		   própria pessoa física ou jurídica.<br><br>
+
+		  Existe três tipos de certificados:<br><br>
+		  (1) Certificado tipo A1 - validade 1 ano;<br>
+		  (2) Certificado tipo A3 - validade até 5 anos;<br>
+		  (3) Certificado em Nuvem - não tem validade;<br><br>
+
+		  Certificado tipo A1: tem validade de 1 (um) ano e, por ser um arquivo, pode ser instalado facilmente em vários computadores mediante cópia de 		 	  segurança (backup) do arquivo;<br><br>
+
+		  Certificado tipo A3: com validade de até 5 anos, é usado geralmente por meio de mídia criptográfica (token ou cartão USB) que precisa estar conectada 		  em computador para cada uso. O certificado só pode ser baixado no token uma única vez e, em caso de perda da mídia, perde-se também o certificado 		  	  digital.<br><br>
+  
+		  Certificado em Nuvem - SerproID: diminui o risco dessa perda por estar armazenado na nuvem do Serpro e ser usado no smartphone. Pode ser instalado em 		  vários computadores e vários celulares, mas, para cada uso, é encaminhado um pedido de autorização para o celular.<br><br>
+
+		  Para obter o certificado digital é só acessar o link abaixo e clicar no botão verde que está com nome "iniciar" e entrar na loja da Serpro e está 		  	  comprando seu certificado digital.<br><br>
+		
+		  Link para obter o certificado digital:<br><a href="www.gov.br/pt-br/servicos/obter-certificacao-digital">www.gov.br/pt-br/servicos/obter-certificacao-digital</a>
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#142 - VPN para acessar o gov (VPN)<h2>
+                <p style="text-align:left;">
+		   Oriento nesse caso acessar a conta GOV mesmo estando fora do país, utilizando uma VPN. <br> 
+		   A VPN cria uma conexão segura e permite que você se conecte a uma rede para seguir com essa opção, você precisará pesquisar na internet como 		   	   proceder. 
+                </p>
+            </section>
+
+	   <section class="scripts">
+                <h2>#143 - Scripts de uso diário<h2>
+		<strong>*Reconhecimento facial*</strong>
+                <p style="text-align:left;">
+		  
+		   Tente novamente realizar o processo de biometria facial em lugar mais iluminado, não cubra o rosto, e deixe o brilho do seu celular no máximo
+                </p>
+		<strong>*Redefinir a senha*</strong>
+                <p style="text-align:left;">   
+		   Aqui está a instrução para você recuperar sua senha, peço que siga essa orientação, por gentileza.
+                </p>
+
+		<strong>*Cliente não informou sua dúvida*</strong>
+                <p style="text-align:left;">   
+		   Você poderia detalhar um pouco mais para que eu possa entender melhor a sua dúvida?
+                </p>
+
+		<strong>*Aguardar o prazo*</strong>
+                <p style="text-align:left;">   		   
+		   Embora seja necessário aguardar o prazo, isso não significa que seu formulário será respondido apenas no último dia. Há a possibilidade de ser 		   	   respondido antes, mas é importante que você aguarde.
+                </p>
+
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#144 - Desvincular o dispositivo autorizador<h2>
+                <p style="text-align:left;">
+		   Siga esse passo a passo:<br>
+		   ► Acesse o aplicativo gov.br em seu dispositivo móvel vinculado;<br>
+		   ► Entre em Segurança da conta > Gerenciar dispositivos;<br>
+		   ► Caso a funcionalidade esteja desabilitada e você deseje habilitá-la, clique no botão cinza e, em seguida, Habilitar;<br>
+		   ► Após a confirmação, apenas será possível acessar a sua conta em dispositivos que foram autorizados;<br><br>
+
+		   A funcionalidade pode ser desabilitada da mesma forma, acessando o aplicativo gov.br vinculado. Ressaltamos que os acessos com certificado digital, 		           acessos com o QRcode (sem senha)
+		   e acessos com a verificação em duas etapas ativa são automaticamente autorizados pela natureza segura destes acessos.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy" style="display:none">Copiar</span>
+                <h2>#145 - Outros navegadores<h2>
+                <p style="text-align:left;">
+		   <strong>Celular</strong><br>
+		   Oriento-lhe a acessar outros navegadores como: Chrome, Brave, Firefox ou Safari. Você pode baixá-los facilmente pela Play Store (Android) ou pela App Store 		   (iOS).<br><br>
+
+		   <strong>Computador</strong><br>
+		   Oriento-lhe a acessar usando outros navegadores, como Chrome, Brave, Edge ou Firefox. Se não os tiver instalados, você pode baixá-los diretamente através do 		   seu navegador atual. 
+                </p>
+            </section>
+
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#146 - Formulário temporariamente indisponivel<h2>
+                <p style="text-align:left;">
+			Entendo. Oriento-lhe que aguarde e tente preencher o formulário em outro momento.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#147 - Encceja<h2>
+                <p style="text-align:left;">
+		   O serviço ENCCEJA <a href="http://enccejanacional.inep.gov.br/">
+			(http://enccejanacional.inep.gov.br/)
+		   </a> é de competência do Ministério da Educação <a href="https://www.gov.br/mec/pt-br">(https://www.gov.br/mec/pt-br)</a><br><br>
+
+		   Para mais informações acesse o link:<br>
+ 		<a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/encceja">
+			https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/encceja
+		   </a><br><br>
+
+		   Para informações dos canais de atendimento acesse o link: <a href="https://www.gov.br/inep/pt-br/canais-de-atendimento/fale-conosco">
+			https://www.gov.br/inep/pt-br/canais-de-atendimento/fale-conosco
+		   </a>
+
+		<br><br>
+
+		   
+		Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br.<br><br>
+
+		Ajudo em algo mais?
+                </p>
+            </section>
+
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#148 - CNH Digital (Qrcode)<h2>
+                <p style="text-align:left;">
+		  A CNH digital em PDF tem que está com Qrcode desta forma:
+                </p>
+		<img src="cnh digital.png" alt="cnh-digital"/>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#149 - Sugestão<h2>
+                <p style="text-align:left;">
+		  Você pode dar a sua sugestão registrando no sistema 
+		  integrado de Ouvidoria da CGU <a href="https://falabr.cgu.gov.br/">(https://falabr.cgu.gov.br/).</a><br><br>
+		
+		  As contribuições pertinentes serão levadas para o gestor do produto para análise.<br><br>
+		  A equipe gov.br está sempre trabalhando para melhorar a experiência do cidadão com os serviços públicos digitais.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#150 - Desativar o gestão de dispositivos(confirmar form)<h2>
+                <p style="text-align:left;">
+		Para reativar sua conta GOV, desative a gestão de dispositivos e preencha o formulário de comprovação de identidade. Use o motivo "Confirmar dados da conta do titular". Após 				finalizar, informe o número do protocolo. <br><br>
+
+		   Acesse o formulário aqui: <a href="https://atendimento.servicos.gov.br/pt/comprovar-identidade">
+				https://atendimento.servicos.gov.br/pt/comprovar-identidade
+			</a>
+                </p>
+            </section>
+
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#151 - Não compativel (Redmi note 12s)<h2>
+                <p style="text-align:left;">
+		   Qual é o nome do modelo do seu celular? <br><br>
+		   Para este modelo, recomendamos que entre em contato diretamente com o fabricante, pois a atualização do sistema operacional pode ter causado a alteração informada.              		</p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#152 - Sisu<h2>
+                <p style="text-align:left;">
+		   O sistema de Solicitação do SISU <a href="https://sisu.mec.gov.br/">
+			(https://sisu.mec.gov.br/)
+		   </a> é de competência do Ministério da Educação <a href="https://www.gov.br/mec/pt-br">(https://www.gov.br/mec/pt-br).</a><br><br>
+
+		   Para informações dos canais de atendimento acesse o link: <a href="https://acessounico.mec.gov.br/sisu">https://acessounico.mec.gov.br/sisu</a>
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#153 - BlackList(fraude)<h2>
+                <p style="text-align:left;">
+		   <img src="blacklist.png" alt="fraude_blacklist"/> <br>
+		   Oriento a aguardar 04 horas e tente preencher o formulário novamente pois foi enviada a sua solicitação para o setor responsável.
+                </p>
+            </section>
+
+	   <section class="scripts">
+                <h2>#154 - Link para identificar Fraudes- imagens<h2>
+                <p style="text-align:left;">
+		    Acesse o link para visualizar as imagens:
+		   <a href="" target="_blank">www.images-fraude.com.br</a>
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#155 - Documentos de menor de idade a ser enviados<h2>
+                <p style="text-align:left;">
+		    Lembrando que o formulário tem que ser feito com seus dados, como menor de idade, certo?<br><br>
+		    Você vai mandar os seguintes documentos:<br><br>
+		    ► A foto de selfie do seu responsável.<br>
+		    ► A sua documentação e a documentação do responsável.<br>
+		    ► E uma carta de autorização escrita à mão com o seguinte texto:<br><br>
+
+			 Eu, NOME DO RESPONSÁVEL, portador do CPF, CPF DO RESPONSÁVEL, em nome de, NOME DO TITULAR DA CONTA, portador do CPF, CPF DO TITULAR DA CONTA, autorizo o Ministério da Gestão e 		    	    da Inovação em Serviços Públicos a alterar os dados cadastrais deste último na plataforma de autenticação do Login único (gov.br). SUA CIDADE. DATA. ASSINATURA.
+                </p>
+		   
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#156 - Tentativas de biometria excedidas<h2>
+                <p style="text-align:left;">
+		    Devido ao grande número de tentativas realizadas hoje no processo de reconhecimento facial, o sistema bloqueou novas tentativas por exceder o limite permitido. Assim, você 		    poderá realizar o reconhecimento facial novamente no dia de amanhã. Pedimos que, ao tentar novamente amanhã, tire um print da primeira tentativa, entre em contato conosco e nos 		    envie, por favor.
+		</p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#157 - Tempo esgotado(facial)<h2>
+                <p style="text-align:left;">
+		   <strong>Passo 1:</strong><br>
+		   Tente novamente realizar o processo de biometria facial em lugar mais iluminado, não cubra o rosto, e deixe o brilho do seu celular no máximo
+		</p>
+
+                <p style="text-align:left;">
+		   <strong>Passo 2(caso 1 passo nao funcionar):</strong><br>
+		   Oriento-lhe você desinstalar o seu aplicativo gov e instalar novamente, e após tente o processo de biometria facial.
+		</p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#158 - Pis/Pasep<h2>
+                <p style="text-align:left;">
+		   O PIS/PASEP é de competência do Ministério do Trabalho e Emprego. <br><br>
+
+		   Para informações dos canais de atendimento acesse o link:<br><a href="https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento">
+			https://www.gov.br/trabalho-e-emprego/pt-br/canais_atendimento
+		   </a><br><br>
+
+		  Nesse link, você abre a solicitação:<br> <a href="https://www.gov.br/pt-br/servicos/receber-o-abono-salarial">https://www.gov.br/pt-br/servicos/receber-o-abono-salarial</a>
+		</p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#159 - Enviar print no atendimento<h2>
+                <p style="text-align:left;">Na tela desse atendimento tem um ícone de clipe, clique, selecione o print e envie.</p>
+            </section>	
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#160 - Febre Amarela<h2>
+                <p style="text-align:left;">
+			
+		Infelizmente, não podemos auxiliá-lo em relação à dificuldade relatada. Este canal trata apenas de assuntos relacionados à Conta Gov.Br. Pedimos que entre em contato com o órgão 		responsável por este serviço e solicite esclarecimentos. <br><br>
+
+		Este é um serviço do(a) Agência Nacional de Vigilância Sanitária - Anvisa Nesse link, você entre em contato com a Anvisa: <br>
+		<a href="https://www.gov.br/anvisa/pt-br/canais_atendimento">https://www.gov.br/anvisa/pt-br/canais_atendimento</a> <br><br>
+
+		No link, você tira o certificado para Febre Amarela:<br> <a href="https://www.gov.br/pt-br/servicos/obter-o-certificado-internacional-de-vacinacao-e-profilaxia">
+			https://www.gov.br/pt-br/servicos/obter-o-certificado-internacional-de-vacinacao-e-profilaxia
+		</a>
+		</p>
+            </section>	
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#161 - FACEMATCH - Atendimento<h2>
+		Atenção!!!
+                <p style="text-align:left;">Peço que leia e siga as orientações neste momento enquanto estivermos no atendimento.</p> 1
+		<p style="text-align:left;">Orientamos que acesse por uma aba anônima.<br><br>
+		Depois disso precisa ir para um local que não esteja exposta à luz solar direta e maximize o brilho da tela de seu dispositivo para facilitar a leitura do rosto e abra um pouco os 			olhos. <br> <br>Verifique o brilho do seu aparelho celular, e  se for preciso diminua e tente novamente..</p>2
+		</p>
+                <p style="text-align:left;">Peço que realize a limpeza de cache agora no app gov.br e tente preencher o formulário novamente, em seguida. <br><br>
+			Passo a passo:<br>
+			Abra as Configurações > Apps ou Gerenciador de aplicativos > app gov > armazenamento > Limpar cache
+		</p> 3
+
+                <p style="text-align:left;">
+			Tente realizar o formulário através de outros navegadores: chrome, firefox, edge, safari, opera ou internet explorer. Se não tiver instalado, você pode baixar na loja de 			aplicativos do seu celular.
+		</p> 4
+
+                <p style="text-align:left;">
+			Compreendo porém, todas as orientações já foram passadas. Só tenho como solicitar que tente novamente com ajuda de terceiros ou através de outro dispositivo diferente 			(celular, computador, tablet, etc).
+		</p>   *Permissão de câmera*
+
+               <p style="text-align:left;">
+			A utilização da câmera durante o uso do gov.br no aplicativo está com permissão ativa em seu celular? <br><br>
+
+			Você precisa verificar nas configurações do celular. Você busca o app gov.br e, em seguida, vai em "Permissões".
+		</p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#162 - CadÚnico<h2>
+                <p style="text-align:left;">
+			O serviço Cadúnico <a href="https://cadunico.dataprev.gov.br/">(https://cadunico.dataprev.gov.br/)</a> é de competência do Ministério do Desenvolvimento e Assistência 			Social, Família e Combate à Fome.<br><br>
+
+			Para informações dos canais de atendimento acesse o link:<br> <a href="https://www.gov.br/pt-br/servicos/consultar-dados-do-cadastro-unico-cadunico">
+				https://www.gov.br/pt-br/servicos/consultar-dados-do-cadastro-unico-cadunico
+			</a><br><br>
+
+			Neste canal, apenas podemos ajudar em assuntos sobre a sua conta Gov.br. <br><br>
+
+			Ajudo em algo mais?
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#163 - Prazo do TSE/TRE<h2>
+                <p style="text-align:left;">
+			No momento, não está aparecendo no sistema a atualização/cadastro da biometria. Acredito que ainda serão atualizados, pois o gov puxa as informações diretamente do TSE 			(Tribunal Superior Eleitoral). <br><br>
+
+			Recomendamos aguardar ou entrar em contato diretamente com o TSE para obter informações sobre o prazo de atualização, já que não temos essa informação aqui.
+                </p>
+            </section>
+
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#164 - Prazo para verificação de duas etapas (2FA)<h2>
+                <p style="text-align:left;">
+		   O prazo para resposta é de algumas horas a até 3 dias úteis. Embora o prazo máximo seja esse, a resposta pode ser fornecida antes, mas é importante aguardar.
+                </p>
+            </section>
+
+	   <section class="scripts">
+		<span class="copy">Copiar</span>
+                <h2>#165 - Transferir para setor especializado(judiciario critico)<h2>
+                <p style="text-align:left;">
+		   Para seu atendimento, é necessário você ser atendido por um setor específico. Eu irei te transferir para um setor especializado, certo?
+                </p>
+            </section>
+
+
+
+	</div>
+    </main>
+
+	<footer>
+	 <p style="text-align:center; font-size:1.6rem; color:white; font-weight:bold;">Desenvolvido por Gabriel Luan</p>
+	</footer>
+    <script>
+// Selecionar elementos do DOM
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const scriptsContainer = document.getElementById('scriptsContainer');
+const msgCopy = document.getElementById('msgCopy');
+
+document.addEventListener('DOMContentLoaded', function () {
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const headerHeight = header.offsetHeight;
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+            // Rolando para baixo
+            header.classList.add('hide');
+        } else {
+            // Rolando para cima
+            header.classList.remove('hide');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Para dispositivos móveis ou saltos negativos
+    }, false);
+});
+
+
+
+
+
+// Função para realizar a pesquisa
+function searchScripts() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const scripts = scriptsContainer.getElementsByClassName('scripts');
+
+    Array.from(scripts).forEach(script => {
+        const title = script.querySelector('h2').textContent.toLowerCase();
+
+        // Expressão regular para encontrar números no formato #000 até #01000
+        const matchNumber = title.match(/#\d{1,4}/);
+        const startsWithLetter = title.startsWith(searchTerm); // Verifica se começa com uma letra específica
+
+        // Verifica se o termo de busca é um número, uma letra ou está em branco
+        if (searchTerm === '' ||
+            (matchNumber && matchNumber[0].includes(searchTerm)) ||
+            startsWithLetter ||
+            title.includes(searchTerm)) {
+            script.style.display = 'block';  // Mostra o script
+        } else {
+            script.style.display = 'none';  // Esconde o script
+        }
+    });
+}
+
+// Adicionar event listeners
+searchButton.addEventListener('click', searchScripts);
+searchInput.addEventListener('input', searchScripts);
+searchInput.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        searchScripts();
+    }
+});
+
+// Seleciona todos os elementos span ou botões com a classe 'copy'
+const spanCopy = document.querySelectorAll('.copy');
+
+// Adiciona o evento de clique para cada botão de cópia
+spanCopy.forEach((copy) => {
+    copy.addEventListener('click', () => {
+        const section = copy.closest('section');
+        const paragrafo = section.querySelector('p');
+
+        if (paragrafo && paragrafo.innerText) {
+            navigator.clipboard.writeText(paragrafo.innerText)
+                .then(() => {
+					const msgOn = setTimeout(()=>{
+						msgCopy.style.opacity = 1
+					},100);
+					
+					const msgOff = setTimeout(()=>{
+						msgCopy.style.opacity = 0
+					},3000);
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar texto: ', err);
+                });
+        } else {
+            console.error('Não foi possível encontrar o parágrafo para copiar.');
+        }
+    });
+});
+
+
+
+//Atalho no input
+document.addEventListener('keydown', function (event) {
+    // Verifica se a tecla pressionada foi Ctrl + P
+    if (event.ctrlKey && event.key === 'q') {
+        event.preventDefault(); // Evita que o comportamento padrão ocorra
+        document.getElementById('searchInput').focus(); // Foca no campo de pesquisa
+    }
+});
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

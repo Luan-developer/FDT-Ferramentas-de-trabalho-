@@ -1,0 +1,147 @@
+/* Estilos globais */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* Mantém header, conteúdo e footer em coluna */
+    width: 100vw;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    padding: 20px 30px;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px #CCC;
+    z-index: 10;
+}
+
+nav .list-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    /* quebra para baixo no mobile */
+}
+
+.list-links li {
+    list-style: none;
+}
+
+.list-links li:hover {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #CCC;
+    transition: all 0.3s ease-in-out;
+}
+
+li a {
+    text-decoration: none;
+    color: blue;
+}
+
+#mark {
+    padding: 10px;
+    border-radius: 5px;
+    color: #000;
+}
+
+#msg_alert {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+    background-color: green;
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Conteúdo principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    flex-wrap: wrap;
+    /* Ajusta no mobile */
+    padding-top: 100px;
+    /* Espaço para header fixo */
+    padding-bottom: 50px;
+    /* Espaço para footer fixo */
+}
+
+.other-links {
+    width: 450px;
+    max-width: 100%;
+    /* Para não ultrapassar a tela no celular */
+    min-height: 300px;
+    border: 1px solid #CCC;
+}
+
+.other-links>ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 45px;
+    gap: 5px;
+}
+
+.color:hover {
+    color: red;
+}
+
+/* Rodapé */
+footer {
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* Responsividade para tablet */
+@media (max-width: 768px) {
+    .container {
+        gap: 10px;
+        padding: 80px 10px 50px;
+    }
+
+    .other-links>ul li {
+        padding: 25px;
+    }
+}
+
+/* Responsividade para celular */
+@media (max-width: 480px) {
+    nav .list-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .other-links {
+        width: 95%;
+    }
+
+    .other-links>ul li {
+        padding: 15px;
+    }
+}
